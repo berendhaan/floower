@@ -4,6 +4,7 @@ RemoteControl::RemoteControl(BluetoothConnect *bluetoothConnect, WifiConnect *wi
         bluetoothConnect(bluetoothConnect), wifiConnect(wifiConnect), cmdInterpreter(cmdInterpreter) {
     cmdInterpreter->onControlCommand([=]() { fireRemoteControl(); });
     cmdInterpreter->onRunOTAUpdate([=](String firmwareUrl) { fireRunUpdate(firmwareUrl); });
+    wifiConnect->onControlCommand([=]() { fireRemoteControl(); });
 }
 
 void RemoteControl::onRemoteControl(RemoteControlCallback callback) {

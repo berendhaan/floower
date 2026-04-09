@@ -38,7 +38,7 @@ Behavior *behavior;
 
 CommandProtocol cmdProtocol(&config, &floower);
 BluetoothConnect bluetoothConnect(&floower, &config, &cmdProtocol);
-WifiConnect wifiConnect(&config, &cmdProtocol);
+WifiConnect wifiConnect(&config, &floower);
 RemoteControl remoteControl(&bluetoothConnect, &wifiConnect, &cmdProtocol);
 
 void configure();
